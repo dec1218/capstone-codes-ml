@@ -1,0 +1,194 @@
+{
+  "model_version": "rf-real-pilot-colab-v1",
+  "dataset_kind": "real",
+  "pilot_status": true,
+  "trained_at": "2026-10-29T07:41:33.957433+00:00",
+  "trained_in": "Google Colab",
+  "source_file": "datasets.xlsx",
+  "source_sheet": "All 300 Records",
+  "row_count": 300,
+  "study_period": {
+    "start": "2024-09-01",
+    "end": "2026-10-21"
+  },
+  "features": [
+    "appointment_hour",
+    "day_of_week",
+    "is_weekend",
+    "duration_minutes",
+    "age_group",
+    "gender",
+    "service_name"
+  ],
+  "approved_services": [
+    "General Consultation",
+    "Immunization",
+    "Prenatal Care"
+  ],
+  "decision_threshold": 0.5,
+  "risk_thresholds": {
+    "moderate": 0.4,
+    "high": 0.7
+  },
+  "class_distribution": {
+    "show": 176,
+    "no_show": 124
+  },
+  "service_distribution": {
+    "Immunization": 174,
+    "Prenatal Care": 64,
+    "General Consultation": 62
+  },
+  "evaluation": {
+    "stratified": {
+      "validation": {
+        "rows": 45,
+        "actual_show": 26,
+        "actual_no_show": 19,
+        "precision": 0.68,
+        "recall": 0.8947,
+        "f1": 0.7727,
+        "roc_auc": 0.8553,
+        "confusion_matrix": [
+          [
+            18,
+            8
+          ],
+          [
+            2,
+            17
+          ]
+        ]
+      },
+      "test": {
+        "rows": 45,
+        "actual_show": 27,
+        "actual_no_show": 18,
+        "precision": 0.6071,
+        "recall": 0.9444,
+        "f1": 0.7391,
+        "roc_auc": 0.8992,
+        "confusion_matrix": [
+          [
+            16,
+            11
+          ],
+          [
+            1,
+            17
+          ]
+        ]
+      }
+    },
+    "chronological": {
+      "validation": {
+        "rows": 34,
+        "actual_show": 26,
+        "actual_no_show": 8,
+        "precision": 0.75,
+        "recall": 0.375,
+        "f1": 0.5,
+        "roc_auc": 0.8149,
+        "confusion_matrix": [
+          [
+            25,
+            1
+          ],
+          [
+            5,
+            3
+          ]
+        ]
+      },
+      "test": {
+        "rows": 94,
+        "actual_show": 76,
+        "actual_no_show": 18,
+        "precision": 0.2115,
+        "recall": 0.6111,
+        "f1": 0.3143,
+        "roc_auc": 0.6089,
+        "confusion_matrix": [
+          [
+            35,
+            41
+          ],
+          [
+            7,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "numeric__duration_minutes",
+      "importance": 0.223027
+    },
+    {
+      "feature": "categorical__service_name_Immunization",
+      "importance": 0.182249
+    },
+    {
+      "feature": "categorical__service_name_General Consultation",
+      "importance": 0.105823
+    },
+    {
+      "feature": "categorical__age_group_Adult",
+      "importance": 0.100794
+    },
+    {
+      "feature": "categorical__age_group_Infant",
+      "importance": 0.084702
+    },
+    {
+      "feature": "numeric__day_of_week",
+      "importance": 0.084469
+    },
+    {
+      "feature": "categorical__age_group_Child",
+      "importance": 0.057799
+    },
+    {
+      "feature": "numeric__appointment_hour",
+      "importance": 0.047072
+    },
+    {
+      "feature": "categorical__service_name_Prenatal Care",
+      "importance": 0.034412
+    },
+    {
+      "feature": "categorical__gender_Male",
+      "importance": 0.028776
+    },
+    {
+      "feature": "categorical__gender_Female",
+      "importance": 0.025966
+    },
+    {
+      "feature": "categorical__age_group_Senior",
+      "importance": 0.021926
+    },
+    {
+      "feature": "numeric__is_weekend",
+      "importance": 0.002985
+    }
+  ],
+  "age_group_definition": {
+    "Infant": "0-11 months",
+    "Child": "12-215 months",
+    "Adult": "216-719 months",
+    "Senior": "720 months and above"
+  },
+  "leakage_policy": "Only information available before the appointment is used. Attendance outcome and record code are excluded from model inputs.",
+  "limitations": [
+    "Real-data pilot, not production-validated.",
+    "General Consultation has no No-Show examples in the source workbook.",
+    "No-Show outcomes are concentrated in Immunization.",
+    "General Consultation appears only in the newest chronological period.",
+    "Booking lead time and prior attendance features are unavailable in this workbook.",
+    "Stratified evaluation randomly mixes appointment dates; chronological evaluation is also reported."
+  ],
+  "usage_warning": "Pilot predictions support technical integration and staff review only. They must not control SMS eligibility."
+}

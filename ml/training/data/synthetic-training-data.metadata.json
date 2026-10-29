@@ -1,0 +1,47 @@
+{
+  "generator_version": "synthetic-generator-v1",
+  "dataset_kind": "synthetic",
+  "generated_at": "2026-10-27T13:29:00.219406+00:00",
+  "seed": 42,
+  "row_count": 500,
+  "date_range": {
+    "start": "2025-10-01",
+    "end": "2026-09-30"
+  },
+  "target_no_show_rate": 0.18,
+  "observed_no_show_rate": 0.152,
+  "class_counts": {
+    "show": 424,
+    "no_show": 76
+  },
+  "service_counts": {
+    "Family Planning": 25,
+    "Blood Pressure Monitoring": 50,
+    "General Consultation": 102,
+    "Dental": 144,
+    "Immunization": 81,
+    "Prenatal Care": 50,
+    "Child Wellness Check": 48
+  },
+  "partition_counts": {
+    "train": {
+      "rows": 350,
+      "no_shows": 53
+    },
+    "validation": {
+      "rows": 75,
+      "no_shows": 10
+    },
+    "test": {
+      "rows": 75,
+      "no_shows": 13
+    }
+  },
+  "label_assumptions": [
+    "Prior no-show rate is the strongest simulated operational factor.",
+    "Longer booking lead time and some schedule periods modestly increase simulated probability.",
+    "Age, gender, and service do not directly determine the synthetic label.",
+    "Random noise prevents deterministic labels and perfect prototype metrics."
+  ],
+  "limitations": "Synthetic development data only. Metrics do not establish real-world predictive validity."
+}

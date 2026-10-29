@@ -1,0 +1,139 @@
+{
+  "model_version": "rf-synthetic-prototype-v1",
+  "dataset_kind": "synthetic",
+  "trained_at": "2026-10-27T13:29:03.077696+00:00",
+  "source_file": "synthetic-training-data.csv",
+  "row_count": 500,
+  "split": {
+    "train": 350,
+    "validation": 75,
+    "test": 75
+  },
+  "features": [
+    "age",
+    "lead_days",
+    "appointment_hour",
+    "day_of_week",
+    "is_weekend",
+    "duration_minutes",
+    "prior_appointments",
+    "prior_no_show_rate",
+    "gender",
+    "service_name"
+  ],
+  "decision_threshold": 0.5,
+  "risk_thresholds": {
+    "moderate": 0.4,
+    "high": 0.7
+  },
+  "metrics": {
+    "validation": {
+      "precision": 0.2,
+      "recall": 0.2,
+      "f1": 0.2,
+      "roc_auc": 0.6215,
+      "confusion_matrix": [
+        [
+          57,
+          8
+        ],
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    "test": {
+      "precision": 0.5556,
+      "recall": 0.3846,
+      "f1": 0.4545,
+      "roc_auc": 0.8238,
+      "confusion_matrix": [
+        [
+          58,
+          4
+        ],
+        [
+          8,
+          5
+        ]
+      ]
+    }
+  },
+  "class_distribution": {
+    "show": 424,
+    "no_show": 76
+  },
+  "feature_importance": [
+    {
+      "feature": "numeric__appointment_hour",
+      "importance": 0.180195
+    },
+    {
+      "feature": "numeric__lead_days",
+      "importance": 0.174962
+    },
+    {
+      "feature": "numeric__prior_no_show_rate",
+      "importance": 0.154069
+    },
+    {
+      "feature": "numeric__age",
+      "importance": 0.130295
+    },
+    {
+      "feature": "numeric__prior_appointments",
+      "importance": 0.104183
+    },
+    {
+      "feature": "numeric__day_of_week",
+      "importance": 0.083261
+    },
+    {
+      "feature": "numeric__duration_minutes",
+      "importance": 0.042334
+    },
+    {
+      "feature": "categorical__service_name_Dental",
+      "importance": 0.021038
+    },
+    {
+      "feature": "categorical__gender_Female",
+      "importance": 0.017486
+    },
+    {
+      "feature": "categorical__service_name_Prenatal Care",
+      "importance": 0.016724
+    },
+    {
+      "feature": "numeric__is_weekend",
+      "importance": 0.015664
+    },
+    {
+      "feature": "categorical__service_name_Immunization",
+      "importance": 0.01327
+    },
+    {
+      "feature": "categorical__gender_Male",
+      "importance": 0.012699
+    },
+    {
+      "feature": "categorical__service_name_Child Wellness Check",
+      "importance": 0.010485
+    },
+    {
+      "feature": "categorical__service_name_General Consultation",
+      "importance": 0.010412
+    },
+    {
+      "feature": "categorical__service_name_Blood Pressure Monitoring",
+      "importance": 0.007606
+    },
+    {
+      "feature": "categorical__service_name_Family Planning",
+      "importance": 0.005321
+    }
+  ],
+  "leakage_policy": "Only information available before the appointment is used; attendance outcomes and delivery fields are excluded.",
+  "usage_warning": "Synthetic models are for technical integration testing only and must not drive operational reminder decisions."
+}

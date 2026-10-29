@@ -1,0 +1,5 @@
+[functions.create-staff-user]
+verify_jwt = true
+
+[functions.send-appointment-reminders]
+verify_jwt = false
